@@ -119,11 +119,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS= [
-    os.path.join(BASE_DIR, '/static')
+    os.path.join(BASE_DIR, 'ecSegWebsite/static')
 ]
 
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'ecSegWebsite/static/'
+STATIC_URL = '/static/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 MEDIA_URL= '/media/'
@@ -131,7 +131,7 @@ MEDIA_URL= '/media/'
 TEMPLATE_ROOT = os.path.join(BASE_DIR,'templates')
 TEMPLATE_URL= '/template/'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'ecSeg'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"

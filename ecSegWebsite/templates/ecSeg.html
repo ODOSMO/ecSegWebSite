@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,23 +29,21 @@
         }
       }
     </style>
-    <!-- Custom styles for this template -->
-<link href="album.css" rel="stylesheet">
+    <!-- Custom styles for this template
+<link href="{% static 'style.css' %}" rel="stylesheet"> -->
 
   </head>
   <body>
     <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">EcSeg Outputs</a>
+  <a class="navbar-brand" href="http://jacobsschool.ucsd.edu"><img src="{% static 'ucsd-logo.jpg' %}" width="8%" style="position:absolute; margin-top: -20px; border-radius: 100px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link active" href="{% static 'JeffJCV07:17:2019.docx' %}">Download Files</a>
-      <a class="nav-item nav-link active" href="https://github.com/Jaure020?tab=repositories">GitHub</a>
-        <a href="{% url 'auth_logout' %}?next=home"> Logout</a>
-      <a class="nav-item nav-link active" href="home">Log Out</a>
+      <a class="nav-item nav-link active" href="http://proteomics.ucsd.edu/vbafna/">Dr. Bafna's Research Laboratory |</a>
+      <a class="nav-item nav-link active" href="mailto:urajkuma@eng.ucsd.edu">Contact Us |</a>
       <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
     </div>
   </div>
@@ -74,8 +71,7 @@
             <br>
 <style>
     #carouselExampleIndicators{
-        width: 40%;
-        float: left;
+        width: 100%;
     }
     #thumbs{
         margin-left: 1%;
@@ -93,7 +89,17 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'test.jpg' %}" class="d-block w-100" alt="...">
+<img id="thumbs" src="{% static 'test.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test2.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test3.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test4.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test5.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test6.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test2.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test3.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+<img id="thumbs" src="{% static 'test4.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+
     </div>
     <div class="carousel-item">
       <img src="{% static 'test2.jpg' %}" class="d-block w-100" alt="...">
@@ -111,21 +117,29 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+ <br> <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%;"></button> <br>
 
-<img id="thumbs" src="{% static 'test.jpg' %}" width="200" class="rounded float-right" alt="...">
-<img id="thumbs" src="{% static 'test2.jpg' %}" width="200" class="rounded float-right" alt="...">
-<img id="thumbs" src="{% static 'test3.jpg' %}" width="200" class="rounded float-right" alt="...">
-<img id="thumbs" src="{% static 'test.jpg' %}" width="200" class="rounded float-right" alt="...">
-<img id="thumbs" src="{% static 'test2.jpg' %}" width="200" class="rounded float-right" alt="...">
-<img id="thumbs" src="{% static 'test3.jpg' %}" width="200" class="rounded float-right" alt="...">
+                <h4>Selected Image:</h4>
+<div>
+  <img id="expandedImg" style="width:42%; float: left;">
+</div>
+<script>
+            function myFunction(img) {
+  // Get the expanded image
+  var expandImg = document.getElementById("expandedImg");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = img.src;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "inline";
 
+  imageZoom("expandedImg", "myresult");
+}
+</script>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div id="myresult" class="img-zoom-result"></div>
+<div id="myresult" class="img-zoom-result" style="float: left; margin-left: 10%;"></div>
 <style>
     .img-zoom-lens {
   position: absolute;
-  border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
   width: 40px;
   height: 40px;
@@ -134,8 +148,8 @@
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
+  width: 349px;
+  height: 349px;
 }
 </style>
 <script>
@@ -195,14 +209,11 @@
   }
 }
 </script>
-<script>
-imageZoom("thumbs", "myresult");
-</script>
-        </div>
+  <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%;"></button>
+</div>
+
     </section>
 </body>
-
-
         <footer class="text-muted">
   <div class="container">
       <p>©UCSD {% now "Y" %}   </p>
