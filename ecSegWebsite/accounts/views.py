@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-
+from django.contrib.auth import logout
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
@@ -19,3 +19,5 @@ class home(generic.CreateView):
     success_url = reverse_lazy('home/')
     template_name = 'home.html'
 
+def logout_view(request):
+    logout(request)
