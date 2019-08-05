@@ -131,9 +131,10 @@ MEDIA_URL= '/media/'
 TEMPLATE_ROOT = os.path.join(BASE_DIR,'templates')
 TEMPLATE_URL= '/template/'
 
-LOGIN_REDIRECT_URL = 'ecSeg'
+SIGNUP_REDIRECT_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'fileUpload'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-
