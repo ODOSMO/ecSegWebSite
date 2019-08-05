@@ -1,0 +1,42 @@
+/****************This part is for styling the overall structure of the site and customizing the bootstrap*/
+body{
+    color:white;
+}
+.text-muted{
+    color:white !important;
+}
+.bg-dark, body{
+    background-color: #e9ecef !important;
+}
+.navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link.active, footer.text-muted{
+    color:black !important;
+    font-weight:normal;
+}
+.jumbotron{
+    background-color:#001b3e;
+}
+.btn-primary {
+    color: #000;
+    background-color: #FFCD00;
+    border-color: #FFCD00;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #bf9900;
+    border-color: #bf9900;
+}
+h1, h2, h3, .h1, .h2, .h3{
+    font-family: "BrixSansBold",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    line-height: 0.917;
+    color: #FFCD00;
+    text-transform: uppercase;
+}
+.navbar-dark .navbar-brand, .navbar-dark .navbar-nav .nav-link.active:hover{
+    background-color: #FFCD00b5;
+    border-radius: 20px;
+}
+/*Home page*/
+#homeImg, #expandedImg{
+    box-shadow: 0px 0px 20px 1px #fff;
+}

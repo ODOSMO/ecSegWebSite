@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
       .bd-placeholder-img {
@@ -29,14 +29,14 @@
         }
       }
     </style>
-    <!-- Custom styles for this template
-<link href="{% static 'style.css' %}" rel="stylesheet"> -->
+    <!-- Custom styles for this template -->
+<link href="{% static 'style.css' %}" rel="stylesheet">
 
   </head>
   <body>
     <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="http://jacobsschool.ucsd.edu"><img src="{% static 'ucsd-logo.jpg' %}" width="8%" style="position:absolute; margin-top: -20px; border-radius: 100px;"></a>
+  <a class="navbar-brand" href="http://jacobsschool.ucsd.edu"><img src="{% static 'UCSD_logo.png' %}" width="15%" style="position:absolute; margin-top: -20px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,7 +53,7 @@
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Extrachromosomal DNA Segmentation (EcSeg)</h1><br>
+            <h1 class="jumbotron-heading">Extrachromosomal DNA Segmentation</h1><br>
 
 
 <div class="dropdown">
@@ -77,10 +77,13 @@
     #thumbs{
         margin-left: 1%;
         margin-top: 1%;
+        box-shadow: 0px 0px 8px 0px #fff;
     }
     #thumbs:hover {
         transform: scale(1.05);
         cursor: pointer;
+        box-shadow: 0px 0px 15px 1px #FFCD00;
+
     }
     #expandedImg:hover{
       cursor: zoom-in;
@@ -132,11 +135,11 @@
 <img id="thumbs" src="{% static 'test4.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" style="margin-left:-10%;" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" style="margin-right:-10%;" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -144,12 +147,12 @@
  <br> <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%;">Selected Image:</button> <br>
 <div style="padding: 1%; width:100%;">
     <div style="width:50%; float:left; margin-right:10%;">
-        <h5 style="text-align:left;">Move the mouse over this image: </h5>
+        <h5 style="text-align:left;">Move the mouse over this image: </h5><br>
         <img id="expandedImg" src="{% static 'defaultimg.png' %}" style="width:100%;">
     </div>
 
     <div style="width:40%; float:right;">
-        <h5 style="text-align:left;">Applied result</h5>
+        <h5 style="text-align:left;">Amplified result:</h5><br>
         <div id="myresult" class="img-zoom-result" style="float: left;"></div>
     </div>
 </div>
@@ -174,10 +177,9 @@
 }
 
 .img-zoom-result {
-  border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 349px;
-  height: 349px;
+  width: 408px;
+  height: 408px;
 }
 </style>
 <script>
@@ -221,6 +223,7 @@
     lens.style.top = y + "px";
     /* Display what the lens "sees": */
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+    addShadow();
   }
   function getCursorPos(e) {
     var a, x = 0, y = 0;
@@ -236,8 +239,11 @@
     return {x : x, y : y};
   }
 }
+function addShadow(){
+    document.getElementById("myresult").style.boxShadow = "0px 0px 20px 1px #fff";
+}
 </script>
-  <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%;"></button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%; margin-top:43%;"></button>
 </div>
 
     </section>
