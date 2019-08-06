@@ -132,8 +132,8 @@ TEMPLATE_ROOT = os.path.join(BASE_DIR,'templates')
 TEMPLATE_URL= '/template/'
 
 SIGNUP_REDIRECT_URL = 'login'
-
-LOGIN_REDIRECT_URL = 'fileUpload'
+# this line defines the page after login
+LOGIN_REDIRECT_URL = 'ecSeg'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
