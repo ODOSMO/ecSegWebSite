@@ -1,8 +1,5 @@
-{% extends 'home.html' %}
-
-{% block title %}Sign Up{% endblock %}
-
 {% block content %}
+  <!doctype html>
 <html lang="en">
   <head>
       {% load staticfiles %}
@@ -49,19 +46,28 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link active" href="http://proteomics.ucsd.edu/vbafna/">Dr. Bafna's Research Laboratory |</a>
       <a class="nav-item nav-link active" href="mailto:urajkuma@eng.ucsd.edu">Contact Us |</a>
+        <a class="nav-item nav-link active" href={% url 'login' %}>Login</a>
       <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
     </div>
   </div>
 </nav>
 </header>
- <section class="jumbotron text-center">
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
-      </section>
+<section class="jumbotron text-center">
+	    <head>
+	        <title>
+	            Python button script
+	        </title>
+	    </head>
+	    <body>
+	        <button onclick="location.href='{% url 'script' %}'">EcSeg</button> <hr>
+	        {% if data %}
+
+	        {{data | safe}}
+
+	        {% endif %}
+
+	        </body>
+  </section>
       <footer class="text-muted">
   <div class="container">
       <p>©EcSeg {% now "Y" %}   </p>
@@ -72,3 +78,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 {% endblock %}
+

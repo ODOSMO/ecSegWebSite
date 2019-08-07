@@ -132,7 +132,7 @@ TEMPLATE_ROOT = os.path.join(BASE_DIR,'templates')
 TEMPLATE_URL= '/template/'
 
 SIGNUP_REDIRECT_URL = 'login'
-# this line defines the page after login
+
 LOGIN_REDIRECT_URL = 'ecSeg'
 LOGOUT_REDIRECT_URL = 'home'
 

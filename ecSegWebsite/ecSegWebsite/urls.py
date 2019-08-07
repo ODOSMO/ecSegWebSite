@@ -18,12 +18,18 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+import accounts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^admin/', admin.site.urls),
+	url(r'^$', accounts.views.button),
+    url(r'^output', accounts.views.output,name='script'),
+    url(r'^external', accounts.views.external, name='external')
 ]
 
 if settings.DEBUG:
