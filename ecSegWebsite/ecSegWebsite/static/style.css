@@ -84,3 +84,9 @@ h1, h2, h3, .h1, .h2, .h3{
   width: 408px;
   height: 408px;
 }
+.custom-file-label::after {
+background-color:#FFCD00 !important;
+}
+footer{
+
+}
