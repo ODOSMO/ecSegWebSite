@@ -25,4 +25,9 @@
     {% endfor %}
     </tbody>
     </table>
+
+    {% for photo in photos %}
+    <img src="{{ photo.photos.url }}"width="210">
+{% endfor %}
+
 {% endblock %}
