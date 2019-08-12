@@ -1,0 +1,28 @@
+
+{% block content %}
+<h2>Photo list </h2>
+
+    <p>
+        <a href="{% url 'upload_photo' %}" class= "btn btn-primary">upload photo</a>
+    </p>
+    <table class="table mb-0">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for photo in photos %}
+    <tr>
+        <td>{{ photo.File_name }}</td>
+        <a href="{{ photo.photos.url }}" class="btn btn-primary btn-sm" taget="_blank">
+            Download PDF
+        </a>
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

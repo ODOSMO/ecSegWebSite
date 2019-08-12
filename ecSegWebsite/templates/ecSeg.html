@@ -39,16 +39,26 @@
 
 
                 <h4>The uploaded images will be displayed below:</h4>
-                <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Upload files</label>
-                    </div>
-                </div>
+<form method ="post" enctype ="multipart/form-data"href="{% url 'ecSeg' %}">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class = "btn btn-primary">Upload photo</button>
+    </form>
 
 
+<!--/////////////////////////////////////YOU CAN WORK INSIDE THIS BLOCK///////////////////////////////////////////////////-->
 
-                <button type="button" class="btn btn-primary btn-lg btn-block" style="width=100%; margin-bottom:3%;">Run ecSeg </button>
+                    <a href="{% url 'upload_photo' %}">poush </a>
+                    <button onclick="location.href='{% url 'script' %}'" class="btn btn-primary btn-lg btn-block"
+                style="width=100%; margin-bottom:3%;">Run EcSeg
+        </button>
+        <hr>
+        {% if data %}
+
+            {{ data | safe }}
+
+        {% endif %}
+
 
 
 
@@ -77,8 +87,8 @@
                 </ol>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img id="thumbs" src="{% static 'test.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
-                <img id="thumbs" src="{% static 'test2.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
+
+                <img id="thumbs" src= "/media/images/IMG_1860.JPG" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
                 <img id="thumbs" src="{% static 'test3.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
                 <img id="thumbs" src="{% static 'test4.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">
                 <img id="thumbs" src="{% static 'test5.jpg' %}" width="210" class="rounded float-left" onclick="myFunction(this);" alt="...">

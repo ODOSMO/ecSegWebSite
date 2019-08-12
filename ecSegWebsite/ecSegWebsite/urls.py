@@ -27,10 +27,13 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^admin/', admin.site.urls),
-	url(r'^$', accounts.views.button),
     url(r'^output', accounts.views.output,name='script'),
-    url(r'^external', accounts.views.external, name='external')
-]
+    url(r'^upload', accounts.views.upload, name='upload'),
+    path('upload/', accounts.views.upload, name='upload'),
+    path('photos/', accounts.views.photo_list, name='photo_list'),
+    path('photos/upload/', accounts.views.upload_photo, name='upload_photo'),
+    url(r'^ecSegView/$', accounts.views.ecSegView.as_view(), name='ecSegView'),
 
+]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
