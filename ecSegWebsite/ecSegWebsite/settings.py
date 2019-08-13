@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'photo.apps.PhotoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts.apps.AccountsConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -126,7 +128,7 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
-MEDIA_URL= '/media/'
+MEDIA_URL= 'media/'
 
 TEMPLATE_ROOT = os.path.join(BASE_DIR,'templates')
 TEMPLATE_URL= '/template/'
@@ -135,6 +137,3 @@ SIGNUP_REDIRECT_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'ecSeg'
 LOGOUT_REDIRECT_URL = 'home'
-
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

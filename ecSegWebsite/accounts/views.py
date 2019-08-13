@@ -10,6 +10,7 @@ from .forms import PhotoForm
 from .models import Photo
 
 
+
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
@@ -41,16 +42,18 @@ def output(request):
 # For File Upload
 
 def upload(request):
+    context={}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         name= fs.save(uploaded_file.name, uploaded_file)
-        return render(request, 'ecSeg.html')
-    return render(request, 'ecSeg.html')
+        return render(request, 'upload.html')
+        context['url']=fs.url(name)
+    return render(request, 'upload.html', context)
 
-def photo_list(request):
+def test1(request):
     photos = Photo.objects.all()
-    return render(request, 'photo_list.html', {
+    return render(request, 'test1.html', {
         'photos': photos
     })
 
@@ -59,10 +62,12 @@ def upload_photo(request):
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('photo_list')
+            return redirect('ecSeg')
     else:
         form = PhotoForm()
     return render(request, 'upload_photo.html', {
         'form':form
     })
+# def test1(request):
+#     return render(request, "test1.html")
 

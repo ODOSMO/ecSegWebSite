@@ -19,7 +19,8 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
-import accounts
+import accounts.views
+import photo.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,9 +31,12 @@ urlpatterns = [
     url(r'^output', accounts.views.output,name='script'),
     url(r'^upload', accounts.views.upload, name='upload'),
     path('upload/', accounts.views.upload, name='upload'),
-    path('photos/', accounts.views.photo_list, name='photo_list'),
+    # path('photos/', accounts.views.photo_list, name='photo_list'),
     path('photos/upload/', accounts.views.upload_photo, name='upload_photo'),
     url(r'^ecSegView/$', accounts.views.ecSegView.as_view(), name='ecSegView'),
+    path('test1/', accounts.views.test1, name='test1'),
+    path('photo/', include('photo.urls')),
+    path('photo/', photo.views.index, name='index'),
 
 ]
 if settings.DEBUG:

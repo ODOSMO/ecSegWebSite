@@ -9,25 +9,35 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Author</th>
             <th>Download</th>
         </tr>
     </thead>
-    <tbody>
-    {% for photo in photos %}
-    <tr>
-        <td>{{ photo.File_name }}</td>
+
+<td>{{ photo.File_name }}</td>
         <a href="{{ photo.photos.url }}" class="btn btn-primary btn-sm" taget="_blank">
-            Download PDF
+            Download image
         </a>
     </td>
+        <tbody>
+    {% for photo in photos %}
+    <tr>
+        <td>
+        {% if photo.photos %}
+        <img src="{{ photo.photos.url }}" alt="{{ photo.File_name }} "width="210">
+        {% endif %}
+        <td>
+
     </tr>
     {% endfor %}
-    </tbody>
-    </table>
 
-    {% for photo in photos %}
-    <img src="{{ photo.photos.url }}"width="210">
-{% endfor %}
+
+    <!--/////////////////////////////////////END OF THIS BLOCK////////////////////////////////////////////////////////////////-->
+
+
+    </table>
+{#    {% for photo in photos %}#}
+{#    <img src="{{ photo.photos.url }}"width="210">#}
+{#{% endfor %}#}
+<!--/////////////////////////////////////END OF THIS BLOCK////////////////////////////////////////////////////////////////-->
 
 {% endblock %}
