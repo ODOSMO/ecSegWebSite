@@ -1,4 +1,4 @@
-Django==2.2.4
+Django==2.2.20
 django-cleanup==4.0.0
 html5lib==1.0.1
 python2==1.2
