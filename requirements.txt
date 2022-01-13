@@ -3,4 +3,4 @@ django-cleanup==4.0.0
 html5lib==1.0.1
 python2==1.2
 requests==2.22.0
-Pillow==5.4.1
+Pillow==9.0.0
